@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Jeff Geerling
+MAINTAINER Tobias Kramheller
 
 # Install dependencies.
 RUN apt-get update \
@@ -17,6 +17,9 @@ RUN apt-add-repository -y ppa:ansible/ansible \
     && rm -rf /var/lib/apt/lists/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
+
+# Install Ansible-Lint
+RUN pip install ansible-lint
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
