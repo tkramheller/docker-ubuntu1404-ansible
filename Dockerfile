@@ -18,7 +18,7 @@ RUN apt-add-repository -y ppa:ansible/ansible \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
-# Install Ansible-Lint ans testinfra
+# Install Ansible-Lint and testinfra
 RUN pip install ansible-lint testinfra
 
 # Install Ansible inventory file
