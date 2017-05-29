@@ -18,11 +18,8 @@ RUN apt-add-repository -y ppa:ansible/ansible \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
 
-# Install Ansible-Lint
-RUN pip install ansible-lint
-
-#Install testinfra
-RUN pip install testinfra
+# Install Ansible-Lint ans testinfra
+RUN pip install ansible-lint testinfra
 
 # Install Ansible inventory file
 RUN echo "[local]\nlocalhost ansible_connection=local" > /etc/ansible/hosts
