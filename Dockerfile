@@ -1,6 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER Tobias Kramheller
 
+# Link /run/shm/
+RUN rmdir /run/shm/ && ln -s /dev/shm/ /run/
+
 # Install dependencies.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
